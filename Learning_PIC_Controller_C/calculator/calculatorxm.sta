@@ -1,0 +1,65 @@
+
+ROM used: 2168 (53%)
+          2545 (62%) including unused fragments
+
+          1 Average locations per line
+          3 Average locations per statement
+
+RAM used: 96 (50%) at main() level
+          119 (62%) worst case
+
+Stack used: 4 worst case (out of 8 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  263   188  25  calculatorxm.c
+   13     0   0  calculatorxm.h
+  237     0   0  C:\Program Files\PICC\devices\16F73.h
+ 1360   380  50  C:\Program Files\PICC\drivers\stdlib.h
+   28     0   0  C:\Program Files\PICC\drivers\stddef.h
+  417   126  17  C:\Program Files\PICC\drivers\string.h
+   28     0   0  C:\Program Files\PICC\drivers\ctype.h
+  186    65   9  C:\Program Files\PICC\drivers\lcd.c
+----- -----
+ 2532   759 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     20   1   1             @delay_ms1
+ Inline        2             @MUL88
+0    293  14   8  1815 10.5  atoi
+0    440  20  15  1882 11.0  atoi32
+0     60   3  13             @MUL3232
+0      8   0   0             @const330
+ Inline        3   463  4.3  lcd_read_byte
+0     14   1   1   134  2.2  lcd_send_nibble
+0     78   4   3   317  4.3  lcd_send_byte
+0     53   2   2   422  4.7  lcd_init
+ Inline        4   186  5.5  lcd_gotoxy
+0     65   3   1   272  4.1  lcd_putc
+1    497  23  66  1836  8.8  MAIN
+0     69   3  13             @DIV3232
+0    167   8  10             @PRINTF_L32D_350
+0      6   0   0             @const380
+0    394  18   3  4399  6.9  get_key
+
+Program metrics:
+    Functions               10
+    Statements              759
+    Comments                910
+    Volume (V)              16408
+    Difficilty (D)          62.2
+    Effort to implement (E) 1020132
+    Time to implement (T)   15 hours, 45 minutes
+    Est Delivered Bugs (B)  3
+    Cyclomatic Complexity   51
+    Maintainability (MI)    101
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF  1667  377  
+00800-00FFF   497  1551  
+
+
+

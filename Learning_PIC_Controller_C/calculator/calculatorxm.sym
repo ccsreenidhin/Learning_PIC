@@ -1,0 +1,146 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+007     lcd
+015     CCP_1_LOW
+015-016 CCP_1
+016     CCP_1_HIGH
+01B-01C CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     @SCRATCH
+021     @SCRATCH
+021     _RETURN_
+022     @SCRATCH
+023     @SCRATCH
+024     @SCRATCH
+025     strtok.save
+026-029 _Randseed
+02A-033 q
+034-03D z
+03E-065 MAIN.w
+066-069 MAIN.r
+06A-06D MAIN.i
+06E-071 MAIN.x
+072-075 MAIN.y
+076-079 MAIN.z
+07A-07D MAIN.k
+07E     MAIN.a
+07F     lcd_init.i
+07F     atoi32.s
+07F     get_key.x
+07F     atoi.s
+07F     MAIN.@SCRATCH1
+0A0-0A3 atoi32.result
+0A0     get_key.i
+0A0-0A3 @MUL3232.P1
+0A0-0A3 @PRINTF_L32D_350.P2
+0A0     atoi.result
+0A0     lcd_init.@SCRATCH1
+0A1     atoi.sign
+0A1     get_key.@SCRATCH1
+0A2     atoi.base
+0A3     atoi.index
+0A4     atoi32.sign
+0A4-0A7 @MUL3232.P1
+0A4     atoi.c
+0A4     @PRINTF_L32D_350.@SCRATCH1
+0A5     atoi32.base
+0A5     @MUL88.P1
+0A5     atoi.@SCRATCH1
+0A5     @PRINTF_L32D_350.@SCRATCH2
+0A6     atoi32.index
+0A6     @MUL88.P1
+0A6     atoi.@SCRATCH2
+0A6     @PRINTF_L32D_350.@SCRATCH3
+0A7     atoi32.c
+0A7     @PRINTF_L32D_350.@SCRATCH4
+0A8     atoi32.@SCRATCH1
+0A8     @MUL3232.@SCRATCH1
+0A8     @PRINTF_L32D_350.@SCRATCH5
+0A9     atoi32.@SCRATCH2
+0A9     @MUL3232.@SCRATCH2
+0A9     @PRINTF_L32D_350.@SCRATCH6
+0AA     lcd_putc.c
+0AA-0AD @DIV3232.P1
+0AA     atoi32.@SCRATCH3
+0AA     @MUL3232.@SCRATCH3
+0AB     lcd_gotoxy.x
+0AB     @delay_ms1.P1
+0AB     atoi32.@SCRATCH4
+0AB     @MUL3232.@SCRATCH4
+0AC     lcd_gotoxy.y
+0AC     atoi32.@SCRATCH5
+0AC     @MUL3232.@SCRATCH5
+0AD     lcd_gotoxy.address
+0AD     atoi32.@SCRATCH6
+0AE-0B1 @DIV3232.P1
+0AE     lcd_gotoxy.@SCRATCH1
+0AF     lcd_send_byte.address
+0B0     lcd_send_byte.n
+0B1     lcd_read_byte.low
+0B1     lcd_send_byte.@SCRATCH1
+0B2     lcd_read_byte.high
+0B2     lcd_send_nibble.n
+0B2     @DIV3232.@SCRATCH1
+0B3     lcd_read_byte.@SCRATCH1
+0B3     @DIV3232.@SCRATCH2
+0B4     @DIV3232.@SCRATCH3
+0B5     @DIV3232.@SCRATCH4
+0B6     @DIV3232.@SCRATCH5
+10D-10E @READ_PROGRAM_MEMORY8.P1
+
+ROM Allocation:
+0012  @delay_ms1
+0590  @MUL88
+0526  atoi
+0282  atoi32
+064B  @MUL3232
+0004  LCD_INIT_STRING
+0035  lcd_read_byte
+0026  lcd_send_nibble
+0034  lcd_send_byte
+0082  lcd_init
+00D5  lcd_gotoxy
+00B7  lcd_putc
+0800  MAIN
+043A  @DIV3232
+047F  @PRINTF_L32D_350
+000C  @const380
+00F8  get_key
+0800  @cinit
+0136  StrtoulGO
+0136  StrtolGO
+
+Project Directory:
+    E:\JIJU\pic c\sample\
+
+Project Files:
+    calculatorxm.c
+    calculatorxm.h
+    C:\Program Files\PICC\devices\16F73.h
+    C:\Program Files\PICC\drivers\stdlib.h
+    C:\Program Files\PICC\drivers\stddef.h
+    C:\Program Files\PICC\drivers\string.h
+    C:\Program Files\PICC\drivers\ctype.h
+    C:\Program Files\PICC\drivers\lcd.c
+
+Units:
+    calculatorxm.c (main)
+
+Compiler Settings:
+    Processor:      PIC16F73
+    Pointer Size:   8
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      calculatorxm.err
+    Ext Symbols: calculatorxm.esym
+    INHX8:       calculatorxm.hex
+    Symbols:     calculatorxm.sym
+    List:        calculatorxm.lst
+    Debug/COFF:  calculatorxm.cof
+    Project:     calculatorxm.PJT
+    Call Tree:   calculatorxm.tre
+    Statistics:  calculatorxm.sta
