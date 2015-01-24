@@ -1,0 +1,120 @@
+CCS PCM C Compiler, Version 4.057, 51112               20-Jun-15 14:35
+
+               Filename: main.lst
+
+               ROM used: 69 words (2%)
+                         Largest free fragment is 2048
+               RAM used: 6 (3%) at main() level
+                         6 (3%) worst case
+               Stack:    0 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+.................... #include "C:\Users\ccsn\Desktop\iv\pic\PROGRAMS\new\main.h" 
+.................... #include <16C73.h> 
+.................... //////// Standard Header file for the PIC16C73 device //////////////// 
+.................... #device PIC16C73 
+.................... #list 
+....................  
+.................... #device adc=8 
+....................  
+.................... #FUSES NOWDT                 	//No Watch Dog Timer 
+.................... #FUSES LP                    	//Low power osc < 200 khz 
+.................... #FUSES NOPUT                 	//No Power Up Timer 
+.................... #FUSES PROTECT               	//Code protected from reads 
+....................  
+.................... #use delay(clock=20000000) 
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+....................  
+....................  
+....................  
+....................  
+.................... void main() 
+.................... { 
+0004:  CLRF   04
+0005:  MOVLW  1F
+0006:  ANDWF  03,F
+0007:  MOVLW  81
+0008:  BSF    03.5
+0009:  MOVWF  19
+000A:  MOVLW  A6
+000B:  MOVWF  18
+000C:  MOVLW  90
+000D:  BCF    03.5
+000E:  MOVWF  18
+000F:  BSF    03.5
+0010:  BSF    1F.0
+0011:  BSF    1F.1
+0012:  BSF    1F.2
+....................    int a; 
+....................    setup_adc_ports(ALL_ANALOG); 
+0013:  BCF    1F.0
+0014:  BCF    1F.1
+0015:  BCF    1F.2
+....................    setup_adc(ADC_CLOCK_DIV_2); 
+0016:  BCF    03.5
+0017:  BCF    1F.6
+0018:  BCF    1F.7
+0019:  BSF    1F.0
+....................    setup_spi(SPI_SS_DISABLED); 
+001A:  BCF    14.5
+001B:  BSF    03.5
+001C:  BCF    07.5
+001D:  BSF    07.4
+001E:  BCF    07.3
+001F:  MOVLW  01
+0020:  BCF    03.5
+0021:  MOVWF  14
+....................    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1); 
+0022:  BSF    03.5
+0023:  MOVF   01,W
+0024:  ANDLW  C7
+0025:  IORLW  08
+0026:  MOVWF  01
+....................    setup_timer_1(T1_DISABLED); 
+0027:  BCF    03.5
+0028:  CLRF   10
+....................    setup_timer_2(T2_DISABLED,0,1); 
+0029:  MOVLW  00
+002A:  MOVWF  21
+002B:  MOVWF  12
+002C:  MOVLW  00
+002D:  BSF    03.5
+002E:  MOVWF  12
+....................  
+....................    set_adc_channel(0); 
+002F:  BCF    03.5
+0030:  MOVWF  21
+0031:  MOVF   1F,W
+0032:  ANDLW  C7
+0033:  IORWF  21,W
+0034:  MOVWF  1F
+....................    while(1) 
+....................    { 
+....................    delay_us(10); 
+0035:  MOVLW  10
+0036:  MOVWF  20
+0037:  DECFSZ 20,F
+0038:  GOTO   037
+0039:  NOP
+....................    a=read_adc(); 
+003A:  BSF    1F.2
+003B:  BTFSC  1F.2
+003C:  GOTO   03B
+003D:  MOVF   1E,W
+003E:  MOVWF  26
+....................    putc(a);// TODO: USER CODE!! 
+003F:  MOVF   26,W
+0040:  BTFSS  0C.4
+0041:  GOTO   040
+0042:  MOVWF  19
+....................    } 
+0043:  GOTO   035
+.................... } 
+0044:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3FC0   LP NOWDT NOPUT PROTECT
