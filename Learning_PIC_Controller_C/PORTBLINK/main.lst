@@ -1,0 +1,162 @@
+CCS PCM C Compiler, Version 4.057, 51112               17-Jun-15 21:52
+
+               Filename: main.lst
+
+               ROM used: 105 words (3%)
+                         Largest free fragment is 2048
+               RAM used: 6 (3%) at main() level
+                         7 (4%) worst case
+               Stack:    1 locations
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   017
+0003:  NOP
+.................... #include "C:\Users\ccsn\Desktop\pic\PROGRAMS\PORTBLINK\main.h" 
+.................... #include <16C73.h> 
+.................... //////// Standard Header file for the PIC16C73 device //////////////// 
+.................... #device PIC16C73 
+.................... #list 
+....................  
+.................... #device adc=8 
+....................  
+.................... #FUSES NOWDT                 	//No Watch Dog Timer 
+.................... #FUSES LP                    	//Low power osc < 200 khz 
+.................... #FUSES NOPUT                 	//No Power Up Timer 
+.................... #FUSES PROTECT               	//Code protected from reads 
+....................  
+.................... #use delay(clock=20000000) 
+0004:  MOVLW  27
+0005:  MOVWF  04
+0006:  MOVF   00,W
+0007:  BTFSC  03.2
+0008:  GOTO   016
+0009:  MOVLW  06
+000A:  MOVWF  21
+000B:  CLRF   20
+000C:  DECFSZ 20,F
+000D:  GOTO   00C
+000E:  DECFSZ 21,F
+000F:  GOTO   00B
+0010:  MOVLW  7B
+0011:  MOVWF  20
+0012:  DECFSZ 20,F
+0013:  GOTO   012
+0014:  DECFSZ 00,F
+0015:  GOTO   009
+0016:  RETLW  00
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+....................  
+....................  
+....................  
+....................  
+.................... void main() 
+.................... { 
+0017:  CLRF   04
+0018:  MOVLW  1F
+0019:  ANDWF  03,F
+001A:  MOVLW  81
+001B:  BSF    03.5
+001C:  MOVWF  19
+001D:  MOVLW  A6
+001E:  MOVWF  18
+001F:  MOVLW  90
+0020:  BCF    03.5
+0021:  MOVWF  18
+0022:  BSF    03.5
+0023:  BSF    1F.0
+0024:  BSF    1F.1
+0025:  BSF    1F.2
+....................  
+....................    setup_adc_ports(NO_ANALOGS); 
+0026:  BSF    1F.0
+0027:  BSF    1F.1
+0028:  BSF    1F.2
+....................    setup_adc(ADC_OFF); 
+0029:  BCF    03.5
+002A:  BCF    1F.0
+....................    setup_spi(SPI_SS_DISABLED); 
+002B:  BCF    14.5
+002C:  BSF    03.5
+002D:  BCF    07.5
+002E:  BSF    07.4
+002F:  BCF    07.3
+0030:  MOVLW  01
+0031:  BCF    03.5
+0032:  MOVWF  14
+....................    setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1); 
+0033:  BSF    03.5
+0034:  MOVF   01,W
+0035:  ANDLW  C7
+0036:  IORLW  08
+0037:  MOVWF  01
+....................    setup_timer_1(T1_DISABLED); 
+0038:  BCF    03.5
+0039:  CLRF   10
+....................    setup_timer_2(T2_DISABLED,0,1); 
+003A:  MOVLW  00
+003B:  MOVWF  21
+003C:  MOVWF  12
+003D:  MOVLW  00
+003E:  BSF    03.5
+003F:  MOVWF  12
+....................    while(1) 
+....................    { 
+....................    output_a(0xff); 
+0040:  CLRF   05
+0041:  MOVLW  FF
+0042:  BCF    03.5
+0043:  MOVWF  05
+....................    output_b(0xff); 
+0044:  BSF    03.5
+0045:  CLRF   06
+0046:  BCF    03.5
+0047:  MOVWF  06
+....................    output_c(0xff); 
+0048:  BSF    03.5
+0049:  CLRF   07
+004A:  BCF    03.5
+004B:  MOVWF  07
+....................    delay_ms(500); 
+004C:  MOVLW  02
+004D:  MOVWF  26
+004E:  MOVLW  FA
+004F:  MOVWF  27
+0050:  CALL   004
+0051:  DECFSZ 26,F
+0052:  GOTO   04E
+....................    output_a(0x00); 
+0053:  BSF    03.5
+0054:  CLRF   05
+0055:  BCF    03.5
+0056:  CLRF   05
+....................    output_b(0x00); 
+0057:  BSF    03.5
+0058:  CLRF   06
+0059:  BCF    03.5
+005A:  CLRF   06
+....................    output_c(0x00); 
+005B:  BSF    03.5
+005C:  CLRF   07
+005D:  BCF    03.5
+005E:  CLRF   07
+....................    delay_ms(500); 
+005F:  MOVLW  02
+0060:  MOVWF  26
+0061:  MOVLW  FA
+0062:  MOVWF  27
+0063:  CALL   004
+0064:  DECFSZ 26,F
+0065:  GOTO   061
+....................     
+....................    } 
+0066:  BSF    03.5
+0067:  GOTO   040
+....................    // TODO: USER CODE!! 
+....................  
+.................... } 
+0068:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3FC0   LP NOWDT NOPUT PROTECT
